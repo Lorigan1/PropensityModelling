@@ -30,6 +30,15 @@ viewshed and solar analysis, but it will distort ground-slope calculations in ur
 | 7 | Bluesky Ireland national DTM/DSM | Bluesky (commercial) — *not GSI* | DTM + DSM | ~1 m–5 m products | Rolling updates (imagery 2017+) | Full Dublin coverage | **Restricted — commercial licence** |
 | 8 | Tailte Éireann (formerly OSi) height data | Tailte Éireann — *not GSI* | DTM (10 m national; finer under licence) | 10 m (±1.5 m vertical) | Periodically updated | Full Dublin coverage | **Restricted — licensed** (INSPIRE view service free to view) |
 | 9 | Copernicus DEM GLO-30 / EU-DEM | ESA/EEA — *not GSI* | DSM-like DEM | 25–30 m | TanDEM-X 2011–2015 | Full coverage | **Open** |
+| 10 | FABDEM v1.2 | Univ. of Bristol / Fathom — *not GSI* | Bare-earth DTM (corrected GLO-30) | 30 m | Based on 2011–2015 TanDEM-X | Full coverage | **Open, non-commercial only** (CC BY-NC-SA 4.0) |
+| 11 | SRTM 1-arcsec / NASADEM | NASA/USGS — *not GSI* | DSM-like DEM | ~30 m | February 2000 | Full coverage | **Open** (public domain) |
+| 12 | ALOS World 3D (AW3D30) / ASTER GDEM v3 | JAXA / NASA-METI — *not GSI* | DSM | ~30 m | Imagery 2006–2011 / 2000–2013 | Full coverage | **Open** (attribution) |
+| 13 | MERIT DEM | Yamazaki Lab, Univ. of Tokyo — *not GSI* | Error-corrected DTM-like DEM | ~90 m | Based on SRTM (2000) | Full coverage | **Open, non-commercial** (registration) |
+| 14 | DeltaDTM v1.1 | Deltares / TU Delft — *not GSI* | Coastal bare-earth DTM | ~30 m (1 arcsec) | Published 2024 (ICESat-2 era) | Coastal lowlands of Dublin | **Open** (CC BY 4.0) |
+| 15 | CoastalDEM | Climate Central — *not GSI* | Coastal DTM (ML-corrected SRTM) | 30 m (1 arcsec) | Based on SRTM (2000) | Coastal lowlands of Dublin | **Restricted** — free for non-commercial research via licence request |
+| 16 | EMODnet Bathymetry DTM / GEBCO | EMODnet consortium / GEBCO — *not GSI* | Bathymetric DTM | ~115 m / ~450 m | Compilations, updated to 2020s | Dublin Bay and Irish Sea | **Open** |
+| 17 | ICESat-2 ATL08/ATL03 | NASA — *not GSI* | Spaceborne laser altimetry (profiles, not a raster) | ~100 m segments along track | 2018–present, ongoing | Sparse tracks across Dublin | **Open** |
+| 18 | WorldDEM Neo / Bluesky MetroVista | Airbus / Bluesky — *not GSI* | DSM+DTM / 3D mesh & LiDAR city model | 5 m / ~10 cm-class | Neo: 2017+ radar; MetroVista: recent urban flights | Full / Dublin city | **Restricted — commercial** |
 
 ---
 
@@ -186,6 +195,131 @@ viewshed and solar analysis, but it will distort ground-slope calculations in ur
   any of the Irish sources above. Provider: ESA/European Environment Agency (trusted
   institutional source).
 
+## 10. FABDEM v1.2 — Forest And Buildings removed Copernicus DEM *(not GSI — open, non-commercial)*
+
+- **Source:** [FABDEM v1.2 at the University of Bristol data repository](https://research-information.bris.ac.uk/en/datasets/fabdem-v1-2/) · [commercial successor FABDEM+ (Fathom)](https://www.fathom.global/product/global-terrain-data-fabdem/)
+- **What it is:** A global **30 m bare-earth DTM** created by machine-learning removal of
+  forest and building bias from Copernicus GLO-30. Validation shows mean absolute
+  vertical error reduced from 1.61 m to 1.12 m in built-up areas and from 5.15 m to
+  2.88 m in forests versus GLO-30 — a significant improvement for terrain/gradient work
+  at metropolitan scale in a built environment like Dublin.
+- **Literature citation:** Hawker, L., Uhe, P., Paulo, L., Sosa, J., Savage, J.,
+  Sampson, C., & Neal, J. (2022). *A 30 m global map of elevation with forests and
+  buildings removed.* Environmental Research Letters, 17(2), 024016.
+- **Age:** Derived from TanDEM-X data acquired 2011–2015; v1.2 released 2023.
+- **Access:** **Open for non-commercial use only** (CC BY-NC-SA 4.0); commercial use
+  requires the licensed Fathom product (FABDEM+).
+- **Reputation:** Reputable academic source (University of Bristol hydrology group /
+  Fathom); peer-reviewed and independently validated; widely adopted in flood modelling.
+
+## 11. SRTM 1-arcsecond / NASADEM *(not GSI — open)*
+
+- **Source:** [USGS EarthExplorer](https://earthexplorer.usgs.gov/) / NASA Earthdata.
+- **What it is:** The February **2000** Shuttle Radar Topography Mission DEM (~30 m,
+  DSM-like radar surface), and its 2020 reprocessing **NASADEM**. Public domain, full
+  Dublin coverage.
+- **Literature citation:** Farr, T. G., et al. (2007). *The Shuttle Radar Topography
+  Mission.* Reviews of Geophysics, 45, RG2004.
+- **Suitability/age:** A quarter-century old and coarse; superseded by Copernicus
+  GLO-30/FABDEM for most purposes, but remains a common baseline in literature.
+- **Reputation:** Trusted (NASA/USGS); one of the most-cited elevation datasets in the
+  scientific literature.
+
+## 12. ALOS World 3D (AW3D30) and ASTER GDEM v3 *(not GSI — open)*
+
+- **Source:** [JAXA AW3D30 portal](https://www.eorc.jaxa.jp/ALOS/en/dataset/aw3d30/aw3d30_e.htm) · NASA/METI ASTER GDEM v3 via Earthdata.
+- **What they are:** ~30 m global photogrammetric **DSMs**: AW3D30 from ALOS PRISM
+  stereo imagery (2006–2011, v3.x), ASTER GDEM v3 from ASTER stereo (2000–2013 imagery,
+  released 2019). Both fully cover Dublin; both are surface models with building/canopy
+  bias in urban areas.
+- **Reputation:** Trusted space-agency sources (JAXA; NASA/METI). AW3D30 generally
+  validates better than ASTER GDEM and is widely used where Copernicus DEM licensing or
+  artefacts are a concern.
+
+## 13. MERIT DEM *(not GSI — open, non-commercial)*
+
+- **Source:** [MERIT DEM, Yamazaki Lab, University of Tokyo](http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/)
+- **What it is:** A ~90 m error-corrected DEM (stripe noise, speckle, tree-height bias
+  removed from SRTM/AW3D), designed for hydrography and terrain analysis.
+- **Literature citation:** Yamazaki, D., et al. (2017). *A high-accuracy map of global
+  terrain elevations.* Geophysical Research Letters, 44, 5844–5853.
+- **Access:** Free for research/education after registration; **non-commercial**.
+- **Suitability:** Too coarse for intra-urban Dublin work; relevant mainly as the basis
+  of global hydrological products (MERIT Hydro flow directions and river networks).
+
+## 14. DeltaDTM v1.1 — global coastal DTM *(not GSI — open)*
+
+- **Source:** [DeltaDTM paper (open access)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10917791/); data distributed openly by Deltares (also mirrored on cloud platforms).
+- **What it is:** A 1-arcsecond (~30 m) **bare-earth DTM of global coastal lowlands**
+  (terrain below ~10 m elevation), built from Copernicus DEM corrected with ICESat-2 and
+  GEDI spaceborne LiDAR. Covers Dublin's low-lying coastal strip — the zone most relevant
+  to coastal flood exposure work.
+- **Literature citation:** Pronk, M., Hooijer, A., Eilander, D., Haag, A., de Jong, T.,
+  Vousdoukas, M., Vernimmen, R., Ledoux, H., & Eleveld, M. (2024). *DeltaDTM: A global
+  coastal digital terrain model.* Scientific Data, 11, 273.
+- **Access:** **Open** (CC BY 4.0).
+- **Reputation:** Reputable applied-research institute (Deltares, with TU Delft);
+  peer-reviewed in Scientific Data.
+
+## 15. CoastalDEM *(not GSI — RESTRICTED for commercial use)*
+
+- **Source:** [Climate Central CoastalDEM](https://www.climatecentral.org/coastaldem)
+- **What it is:** A 30 m coastal DTM produced by neural-network correction of SRTM,
+  widely used in sea-level-rise exposure studies (including headlines about Dublin's
+  coastal flood exposure).
+- **Literature citation:** Kulp, S. A., & Strauss, B. H. (2018). *CoastalDEM: A global
+  coastal digital elevation model improved from SRTM using a neural network.* Remote
+  Sensing of Environment, 206, 231–239.
+- **Access:** **Restricted** — free licence for non-commercial research on request;
+  commercial use licensed. Based on 2000-era SRTM, so ageing.
+- **Reputation:** Reputable non-profit research organisation; peer-reviewed method, though
+  later products (FABDEM, DeltaDTM) generally validate better.
+
+## 16. EMODnet Bathymetry DTM and GEBCO *(not GSI — open, marine)*
+
+- **Source:** [EMODnet Bathymetry portal](https://emodnet.ec.europa.eu/en/bathymetry) · [GEBCO gridded bathymetry](https://www.gebco.net/data_and_products/gridded_bathymetry_data/)
+- **What they are:** Harmonised European seabed DTM (~1/16 arc-minute, ~115 m; INFOMAR is
+  a principal contributor for Irish waters) and the ~15 arcsecond global GEBCO grid.
+  Both cover Dublin Bay and the Irish Sea; use INFOMAR (dataset 5) where available, as it
+  is the higher-resolution source these compilations draw on.
+- **Access:** **Open**.
+- **Reputation:** Trusted — EU-funded consortium (EMODnet) and the IHO/IOC-backed GEBCO
+  programme.
+
+## 17. ICESat-2 laser altimetry (ATL03/ATL08) *(not GSI — open, validation)*
+
+- **Source:** [NASA ICESat-2 data at NSIDC](https://nsidc.org/data/icesat-2)
+- **What it is:** Spaceborne photon-counting laser altimetry (2018–present) providing
+  sparse but very accurate ground-elevation profiles along satellite tracks crossing the
+  Dublin area. Not a raster DEM — its role is **independent validation/bias correction**
+  of the DTM/DSM rasters above (this is how FABDEM and DeltaDTM were built). Note that
+  GEDI, the other spaceborne LiDAR, does *not* cover Dublin (coverage limited to ±51.6°
+  latitude).
+- **Access:** **Open** (NASA Earthdata).
+- **Reputation:** Trusted (NASA).
+
+## 18. Commercial high-resolution alternatives *(not GSI — RESTRICTED)*
+
+- **Airbus WorldDEM Neo** — 5 m global DSM/DTM from TanDEM-X radar (2017 onwards);
+  full Dublin coverage; commercial licence. ([Airbus intelligence](https://intelligence.airbus.com/imagery/reference-layers/worlddem-neo/))
+- **Bluesky MetroVista** — aircraft-flown urban 3D mesh and high-density LiDAR programme
+  covering major cities in Britain and Ireland, including Dublin city; ~10 cm-class
+  detail; commercial licence. ([Bluesky MetroVista](https://www.bluesky-world.com/metrovista))
+- **Maxar Precision3D and similar** — satellite-photogrammetry DSM/DTM (~0.5 m) available
+  on order; commercial licence.
+- **Reputation:** Established commercial suppliers; quality is high but data is closed —
+  label any derived outputs accordingly.
+
+## 19. Dublinked / Smart Dublin regional open-data portal *(not GSI — open, no primary DEMs)*
+
+- **Source:** [Dublinked / Smart Dublin](https://www.dublincity.ie/business/economic-development-and-enterprise/smart-cities/dublinked)
+- **What it is:** The open-data platform of the four Dublin local authorities (~300
+  datasets). It does **not** currently host a primary DTM/DSM — Dublin local-authority
+  elevation data reaches the public through the GSI viewer and OPW portals instead — but
+  it is worth monitoring for derived terrain products (e.g. flood, drainage and
+  building-height layers) and for context data used alongside elevation modelling.
+- **Reputation:** Trusted — official local-government open-data initiative.
+
 ---
 
 ## Practical notes for terrain / elevation / gradient work in Dublin
@@ -196,7 +330,10 @@ viewshed and solar analysis, but it will distort ground-slope calculations in ur
 2. **Best open combination (2026):** GSI Open Topographic Viewer 1 m DTM tiles + OPW
    flood-programme DTM blocks for the urban core and river corridors, gap-filled with the
    OPW 2006–07 coastal 2 m DTM, and Tailte Éireann 10 m DTM (or Copernicus 30 m) for the
-   remaining gaps. INFOMAR bathymetry extends the model into Dublin Bay.
+   remaining gaps. INFOMAR bathymetry extends the model into Dublin Bay. For
+   metropolitan-scale gradient work in a single consistent raster, **FABDEM (30 m,
+   non-commercial)** is the best open bare-earth compromise; use **DeltaDTM** on the
+   coastal strip and **ICESat-2** profiles to validate whichever mosaic you build.
 3. **Watch the vertical datum and CRS:** Irish open elevation data is generally on the
    Malin Head vertical datum, ITM (EPSG:2157) horizontal; older tiles may differ — check
    per-tile metadata.
@@ -220,3 +357,12 @@ viewshed and solar analysis, but it will distort ground-slope calculations in ur
 | NYU/UCD 2015 Dublin survey (Laefer et al.) | Reputable academic source; widely cited benchmark dataset |
 | Bluesky Ireland | Established commercial supplier (restricted/commercial data) |
 | ESA/EEA (Copernicus) | Trusted institutional source (coarse resolution) |
+| NASA / USGS (SRTM, NASADEM, ICESat-2) | Trusted space/science agencies; SRTM among the most-cited elevation datasets |
+| JAXA / NASA-METI (AW3D30, ASTER GDEM) | Trusted space agencies (open DSMs) |
+| University of Bristol / Fathom (FABDEM) | Reputable academic source; peer-reviewed (Hawker et al. 2022), independently validated; non-commercial licence |
+| Yamazaki Lab, Univ. of Tokyo (MERIT) | Reputable academic source; peer-reviewed (Yamazaki et al. 2017); non-commercial |
+| Deltares / TU Delft (DeltaDTM) | Reputable applied-research institute; peer-reviewed (Pronk et al. 2024) |
+| Climate Central (CoastalDEM) | Reputable non-profit; peer-reviewed (Kulp & Strauss 2018); restricted licence |
+| EMODnet / GEBCO | Trusted EU consortium and IHO/IOC programme (marine) |
+| Airbus / Maxar | Established commercial suppliers (restricted data) |
+| Dublinked / Smart Dublin | Trusted local-government open-data initiative (no primary DEMs) |
