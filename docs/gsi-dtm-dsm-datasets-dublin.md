@@ -346,6 +346,51 @@ viewshed and solar analysis, but it will distort ground-slope calculations in ur
    [Open Topographic Data Viewer](https://dcenr.maps.arcgis.com/apps/webappviewer/index.html?id=b7c4b0e763964070ad69bf8c1572c9f5)
    for the exact Dublin footprint of each acquisition.
 
+## Appendix: links requiring manual verification
+
+This document was compiled in a sandboxed environment whose network proxy **blocked
+direct access to several source sites** (notably `data.gov.ie`, `gsi.geodata.gov.ie`,
+`opendata-geodata-gov-ie.hub.arcgis.com`, `libguides.ucd.ie` and `geo.nyu.edu`). Details
+for those sources were corroborated from search-result content only. The links below
+should be opened manually to confirm the stated coverage, survey dates, licence terms
+and download availability.
+
+### Confirmed blocked in this session (highest priority to verify)
+
+| Dataset | Link | What to verify |
+|---------|------|----------------|
+| GSI Open Topographic LiDAR Data (data.gov.ie record) | https://data.gov.ie/dataset/open-topographic-lidar-data | Current resolutions, survey-year range, licence, last-updated date |
+| GSI Open Topographic LiDAR download viewer (open-data hub record) | https://opendata-geodata-gov-ie.hub.arcgis.com/datasets/ie-gsi-open-topographic-lidar-data-ireland-itm-download-viewer | Exact Dublin tile footprint; contributing organisations |
+| GSI LiDAR coverage index layer | https://opendata-geodata-gov-ie.hub.arcgis.com/datasets/ie-gsi-lidar-coverage-gsi-dchg-dp-ireland-roi-itm-view/about | Per-block survey dates over the Dublin area |
+| OPW Blom Coastal Survey 2006–07 coverage layer | https://opendata-geodata-gov-ie.hub.arcgis.com/datasets/ie-gsi-lidar-coverage-office-of-public-works-opw-blom-coastal-survey-2006-2007-ireland-roi-itm-view | Dublin coastal extent; 2 m vs 5 m cell areas |
+| GSI 25 cm photogrammetry DSM — service metadata | https://gsi.geodata.gov.ie/imagehost/rest/services/Lidar/IE_GSI_Photogrammetry_DSM_HS_GSI_25cm_IE26_ITM_MH_TIFF/ImageServer/info/metadata | Acquisition dates, lineage (source imagery), licence, whether raw DSM (not just hillshade) is downloadable |
+| GSI 25 cm photogrammetry DSM — hub record | https://hub.arcgis.com/datasets/geodata-gov-ie::ie-gsi-photogrammetry-digital-surface-model-dsm-hillshade-25cm-ireland-roi-itm-mh-tiff | Same as above |
+| 2015 Dublin City ALS survey (NYU Spatial Data Repository) | https://geo.nyu.edu/catalog/nyu-2451-38684 | Licence wording, DOI, exact deliverables (DSM/DTM rasters vs point cloud only) |
+| 2015 Dublin City ALS survey (NYU archive mirror) | https://archive.nyu.edu/handle/2451/38684 | Same as above |
+| UCD LibGuide — LiDAR & remote sensing for Ireland | https://libguides.ucd.ie/gisguide/LiDAR | Institutional Bluesky 1 m DTM/DSM holdings for Dublin; access conditions |
+
+### Not fetched directly — verified via search snippets only
+
+| Dataset | Link | What to verify |
+|---------|------|----------------|
+| GSI Open Topographic Data Viewer (announcement) | https://www.gsi.ie/en-ie/events-and-news/news/Pages/Open-Topographic-Data-Viewer.aspx | Programme description, partner list |
+| GSI Open Topographic Data Viewer (application) | https://dcenr.maps.arcgis.com/apps/webappviewer/index.html?id=b7c4b0e763964070ad69bf8c1572c9f5 | Interactive check of Dublin coverage and per-tile metadata |
+| OPW open-data LiDAR press release (July 2021) | https://www.gov.ie/en/office-of-public-works/press-releases/opw-releases-lidar-captured-as-part-of-flood-risk-management-projects-as-open-data/ | Which survey blocks were released; licence |
+| OPW floodinfo.ie Open Spatial Data Portal | https://www.floodinfo.ie/open-spatial-data-portal/ | Dublin-area LiDAR blocks, resolutions, request procedure |
+| OPW aerial survey data finder | https://www.floodinfo.ie/open-spatial-data-portal/aerial-survey-imagery-data-finder/ | Per-survey dates and deliverables (0.25/0.5/1/2 m DSM+DTM) |
+| INFOMAR data download portal | https://www.infomar.ie/data | Dublin Bay bathymetry resolutions and survey years |
+| INFOMAR bathymetry record (data.gov.ie) | https://data.gov.ie/dataset/infomar-seabed-survey-bathymetry-multi-beam-and-lidar | Licence (CC BY?), formats |
+| Tailte Éireann aerial imagery / height products | https://tailte.ie/map-shop/professional-map-products/aerial-imagery-maps-and-data/ | Series 3 capture years (2017–2023), 15 cm Dublin extent |
+| Tailte Éireann 10 m DEM INSPIRE view service | https://inspire-geoportal.ec.europa.eu/srv/api/records/%7B0CD532EA-1AD7-44CE-8AAE-7E5A3F586C16%7D | Service status, licence, accuracy statement |
+| Bluesky Ireland height data | https://www.bluesky-world.ie/standard-height-data | Product resolutions, update epochs, Dublin coverage |
+| Bluesky MetroVista | https://www.bluesky-world.com/metrovista | Whether Dublin city is in the current MetroVista programme |
+| FABDEM v1.2 repository | https://research-information.bris.ac.uk/en/datasets/fabdem-v1-2/ | Licence (CC BY-NC-SA 4.0), version, tile download |
+| MERIT DEM | http://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_DEM/ | Registration and licence terms |
+| DeltaDTM paper / data | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10917791/ | Data-repository link and licence in the paper's Data Availability section |
+| CoastalDEM | https://www.climatecentral.org/coastaldem | Current licence request process |
+| EMODnet Bathymetry | https://emodnet.ec.europa.eu/en/bathymetry | Current DTM release and resolution |
+| Dublinked / Smart Dublin | https://www.dublincity.ie/business/economic-development-and-enterprise/smart-cities/dublinked | Whether any terrain-derived datasets have since been published |
+
 ## Source-reputation summary
 
 | Source | Reputation |
